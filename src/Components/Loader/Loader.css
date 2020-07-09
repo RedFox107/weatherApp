@@ -1,0 +1,41 @@
+.centering-block{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: block;
+    overflow: hidden;
+}
+.loader div {
+    height: 100%;
+}
+.loader div {
+@include loaderDivMixin;
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid transparent;
+    animation: rotate linear 3.5s infinite;
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-left-color: rgba(0, 0, 255, 0.5);
+    animation-timing-function: cubic-bezier(0.55, 0.38, 0.21, 0.88);
+    animation-duration: 3s;
+
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

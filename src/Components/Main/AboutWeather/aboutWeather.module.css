@@ -1,0 +1,41 @@
+.aboutWeather{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+.aboutWeather h2{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 2.5em;
+}
+.tempInfo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tempInfo span{
+    z-index: 5;
+    font-size: 2.3em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255,0.7);
+}
+
+.tempInfo img{
+    height: 300px;
+    position: absolute;
+    width: 300px;
+}
+.additionalInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5em;
+}

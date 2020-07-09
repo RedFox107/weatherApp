@@ -1,0 +1,19 @@
+.searchByCityName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+}
+.searchByCityName label{
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+.searchByCityName input{
+    width: 80%;
+    font-size: 1.2em;
+    padding: 4px 15px;
+    border: none;
+    border-radius: 10px;
+}
+
