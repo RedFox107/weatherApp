@@ -41,6 +41,7 @@ const weatherData_reducer = (state = initialState, action) => {
 }
 
 export default weatherData_reducer;
+
 //Action creators
 
 export const startLoadingAC = () => ({type: DATA_LOADING_START}),
@@ -51,7 +52,7 @@ const setErrorAC = (error) => ({type: SET_SOME_ERROR, error}),
     setWeatherDataAC = (data) => ({type: SET_WEATHER_DATA, data});
 
 //Thunk creators
-//throttle(dataForApiCall,400)
+
 const getWeatherBy_Creator = (apiCall) => (dataForApiCall) => async (dispatch) => {
     dispatch(startLoadingAC())
     try {
@@ -66,11 +67,10 @@ const getWeatherBy_Creator = (apiCall) => (dataForApiCall) => async (dispatch) =
         }
         dispatch(loadingSuccessAC())
     } catch (e) {
-        debugger
         dispatch(setErrorAC("Ошибка сети повторите ввод"));
     }
 
-}//Конструктор запросов по разным endpoint'ам
+}//Конструктор thunk для запросов по разным endpoint'ам
 
 export const getWeatherDataByCityName = throttle(getWeatherBy_Creator(API.getWeatherByCityName),2000),
     getWeatherDataByCoordinates = throttle(getWeatherBy_Creator(API.getWeatherByCoordinates),2000);

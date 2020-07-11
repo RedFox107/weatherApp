@@ -8,23 +8,35 @@ import {setCityNameAC, setLatAC, setLonAC} from "../../redux/reducers/searchBy_r
 import {getWeatherDataByCityName, getWeatherDataByCoordinates} from "../../redux/reducers/weatherData_reducer";
 
 
-const Main = ({searchBy,setCityNameAC,setLatAC,setLonAC,getWeatherDataByCityName,getWeatherDataByCoordinates})=>{
-    const {cityName,lat,lon} = searchBy;
-
+const Main = ({searchBy, setCityNameAC, setLatAC, setLonAC, getWeatherDataByCityName, getWeatherDataByCoordinates}) => {
+    const {cityName, lat, lon} = searchBy;
     return <main>
         <form>
-            <SearchByCityName getWeatherData={getWeatherDataByCityName} cityName={cityName} onChangeCityName={setCityNameAC}/>
-            <SearchCityByLatLon getWeatherData={getWeatherDataByCoordinates} lat={lat} lon={lon} onChangeLat={setLatAC} onChangeLon={setLonAC}/>
+            <SearchByCityName
+                getWeatherData={getWeatherDataByCityName}
+                cityName={cityName}
+                onChangeCityName={setCityNameAC}
+            />
+
+            <SearchCityByLatLon
+                getWeatherData={getWeatherDataByCoordinates}
+                lat={lat} lon={lon}
+                onChangeLat={setLatAC}
+                onChangeLon={setLonAC}
+            />
+
         </form>
         <AboutWeather/>
     </main>
 }
 
-const mapStateToProps = (state)=>({
-    searchBy:state.searchBy
+
+const mapStateToProps = (state) => ({
+    searchBy: state.searchBy
 })
 
-
-
-export default connect(mapStateToProps,{setCityNameAC,setLatAC,setLonAC,getWeatherDataByCityName,getWeatherDataByCoordinates})(Main)
+export default connect(
+    mapStateToProps,
+    {setCityNameAC, setLatAC, setLonAC, getWeatherDataByCityName, getWeatherDataByCoordinates}
+)(Main)
 
